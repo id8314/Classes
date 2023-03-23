@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=Generator content="Microsoft Word 15 (filtered)">
-<title>DevEnv4C</title>
+<title>Configure a C development space using WSL and Visual Studio Code</title>
 <style>
 <!--
  /* Font Definitions */
@@ -67,8 +67,6 @@ div.WordSection1
 
 <div class=WordSection1>
 
-<h1><span lang=EN-GB>Sistemas de Computa��o</span></h1>
-
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB>Configure a C development space using WSL and Visual Studio Code</span></p>
 
@@ -93,7 +91,7 @@ lang=EN-GB><a
 href="https://apps.microsoft.com/store/detail/windows-terminal-preview/9N8G5RFZ9XK3">https://apps.microsoft.com/store/detail/windows-terminal-preview/9N8G5RFZ9XK3</a></span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB>Windows sometimes already has �Windows Terminal� installed. If that
+lang=EN-GB>Windows sometimes already has Windows Terminal installed. If that
 is the case remove it.</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
@@ -114,11 +112,11 @@ lang=EN-GB># reboot</span></p>
 lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># After rebooting launch the app �Ubuntu� and follow the
+lang=EN-GB># After rebooting launch the app Ubuntu and follow the
 instructions to get your Ubuntu ready.</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># After setup you can use �Windows Terminal Preview� and there should
+lang=EN-GB># After setup you can use Windows Terminal Preview and there should
 be an option to launch a</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
@@ -253,14 +251,14 @@ lang=EN-GB style='font-family:"Courier New"'>int main(void)</span></p>
 lang=EN-GB style='font-family:"Courier New"'>{</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB style='font-family:"Courier New"'>��� int a = 3;</span></p>
+lang=EN-GB style='font-family:"Courier New"'> int a = 3;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB style='font-family:"Courier New"'>��� printf(&quot;\nOnce upon a
+lang=EN-GB style='font-family:"Courier New"'> printf(&quot;\nOnce upon a
 time... The number %d was printed!\n&quot;, a);</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB style='font-family:"Courier New"'>��� return 0;</span></p>
+lang=EN-GB style='font-family:"Courier New"'> return 0;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB style='font-family:"Courier New"'>}</span></p>
@@ -272,7 +270,7 @@ lang=EN-GB>&nbsp;</span></p>
 lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># On the RUN menu select �Start Debugging�</span></p>
+lang=EN-GB># On the RUN menu select Start Debugging</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB>&nbsp;</span></p>
@@ -289,7 +287,7 @@ lang=EN-GB>&nbsp;</span></p>
 lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># Go to �Terminal� menu and select �Configure default build task�.</span></p>
+lang=EN-GB># Go to Terminal menu and select Configure default build task.</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB><img border=0 width=548 height=358 id="Picture 9"
@@ -328,7 +326,7 @@ alt="Graphical user interface, application&#10;&#10;Description automatically ge
 lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># Click the button �Open launch.json�</span></p>
+lang=EN-GB># Click the button Open launch.json</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB>&nbsp;</span></p>
@@ -342,7 +340,7 @@ alt="Graphical user interface, text, application&#10;&#10;Description automatica
 lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># After clicking �Add Configuration� Choose the option <b>C/C++:
+lang=EN-GB># After clicking Add Configuration Choose the option <b>C/C++:
 (gdb) Launch</b></span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
@@ -369,7 +367,7 @@ lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB># If you look at the file tasks.json you will see that this program
-name is defined on the �-o� argument of the task, under �args� passed to gcc</span></p>
+name is defined on the -o argument of the task, under args passed to gcc</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB>&nbsp;</span></p>
@@ -405,7 +403,7 @@ lang=EN-GB style='font-family:"Courier New"'>gdb: /usr/share/gdb</span></p>
 lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># On the launch.json file add under �configurations� the parameter:</span></p>
+lang=EN-GB># On the launch.json file add under configurations the parameter:</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:18.0pt;background:#1E1E1E'><span
 lang=EN-GB style='font-size:13.5pt;font-family:Consolas;color:#9CDCFE'>&quot;miDebuggerPath&quot;</span><span
@@ -426,7 +424,7 @@ lang=EN-GB># Menu RUN -&gt; Start Debugging</span></p>
 lang=EN-GB>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-GB># this time on the terminal (Menu View-&gt;Terminal or Ctrl+� on
+lang=EN-GB># this time on the terminal (Menu View-&gt;Terminal or Ctrl+ on
 windows/wsl) we sould see:</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
@@ -434,8 +432,8 @@ lang=EN-GB style='font-family:"Courier New"'>Once upon a time... The number 3
 was printed! </span></b></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
-lang=EN-GB style='font-family:"Courier New"'>[1] + Done����� &quot;/usr/bin/gdb&quot;
-�</span></b></p>
+lang=EN-GB style='font-family:"Courier New"'>[1] + Done &quot;/usr/bin/gdb&quot;
+</span></b></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB>&nbsp;</span></p>
@@ -445,7 +443,7 @@ lang=EN-GB># Lets try a breakpoint.</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB># Go to the line with the printf statement and click on the empty
-space� on the left of the line number of the printf. A red dot should appear.</span></p>
+space on the left of the line number of the printf. A red dot should appear.</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
 lang=EN-GB><img border=0 width=264 height=190 id="Picture 18"
