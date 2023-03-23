@@ -42,7 +42,7 @@ mkdir codigo
 cd codigo
 code .
 ```
-If the following warning shows you must trust the authors (you) to proceed.
+Do not forget the `` . `` at the end. If the following warning shows, you must trust the authors (you) to proceed.
 ![Trust the folder!]({{site.baseurl}}/assets/20230323/image001.png)
 
 # Install the extension "C/C++ Extension Pack"
