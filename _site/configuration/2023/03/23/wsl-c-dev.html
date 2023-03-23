@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>C development using vscode and wsl | Resources</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="C development using vscode and wsl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="First Install Visual Studio Code Download and install a x64 version from https://code.visualstudio.com/download" />
+<meta property="og:description" content="First Install Visual Studio Code Download and install a x64 version from https://code.visualstudio.com/download" />
+<link rel="canonical" href="http://localhost:4000/fragments/configuration/2023/03/23/wsl-c-dev.html" />
+<meta property="og:url" content="http://localhost:4000/fragments/configuration/2023/03/23/wsl-c-dev.html" />
+<meta property="og:site_name" content="Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-23T14:45:02+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="C development using vscode and wsl" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-23T14:45:02+00:00","datePublished":"2023-03-23T14:45:02+00:00","description":"First Install Visual Studio Code Download and install a x64 version from https://code.visualstudio.com/download","headline":"C development using vscode and wsl","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/fragments/configuration/2023/03/23/wsl-c-dev.html"},"url":"http://localhost:4000/fragments/configuration/2023/03/23/wsl-c-dev.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fragments/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/fragments/feed.xml" title="Resources" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fragments/">Resources</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fragments/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">C development using vscode and wsl</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-03-23T14:45:02+00:00" itemprop="datePublished">Mar 23, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="first-install-visual-studio-code">First Install Visual Studio Code</h1>
+<p>Download and install a x64 version from <a href="https://code.visualstudio.com/download" target="_blank">https://code.visualstudio.com/download</a></p>
+
+<h1 id="install-windows-terminal-preview">Install Windows Terminal Preview</h1>
+<p>Windows Terminal Preview can be installed from the <a href="https://apps.microsoft.com/store/detail/windows-terminal-preview/9N8G5RFZ9XK3" target="_blank">Windows Store</a>. Windows sometimes already has “Windows Terminal” installed. If that is the case remove it.</p>
+
+<h1 id="install-wsl-windows-subsystem-for-linux">Install wsl (windows subsystem for linux)</h1>
+<p>Open a command line <strong>as administrator</strong>, execute <code class="language-plaintext highlighter-rouge">wsl --install</code> and then reboot.</p>
+
+<p>After rebooting launch the app “Ubuntu” and follow the instructions to get your Ubuntu ready. Then, you can use “Windows Terminal Preview” and there should be an option to launch aUbuntu prompt. You can always use the Ubuntu App.</p>
+
+<h1 id="configure-ubuntu-linux">Configure Ubuntu Linux</h1>
+<p>On the Ubuntu prompt execute:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update &amp;&amp; sudo apt -y upgrade
+sudo apt install git
+sudo apt install build-essential
+sudo apt install gdb
+</code></pre></div></div>
+
+<h1 id="check-the-installed-tools">Check the installed tools:</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whereis gcc make
+gcc --version
+make -v
+gdb --version
+git --version
+</code></pre></div></div>
+
+<h1 id="on-the-linux-console">On the Linux console:</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir codigo
+cd codigo
+code .
+</code></pre></div></div>
+<p>If the following warning shows you must trust the authors (you) to proceed.
+<img src="/fragments/assets/20230323/image001.png" alt="Trust the folder!" /></p>
+
+<h1 id="install-the-extension-cc-extension-pack">Install the extension “C/C++ Extension Pack”</h1>
+<p>On the Visual Studio code, click the shortcut for extensions on the left,
+<img src="/fragments/assets/20230323/image002.png" alt="Extensions" /> and search for <strong>C/C++ Extension Pack</strong></p>
+
+<p><img src="/fragments/assets/20230323/image003.png" alt="C/C++ Extension Pack" /></p>
+
+<h1 id="create-a-c-source-code-file">Create a C source code file</h1>
+<p>Change to the file view and create a new file called demo.c</p>
+
+<p><img src="/fragments/assets/20230323/image004.png" alt="new file" /></p>
+
+<h1 id="type-the-following-code">Type the following code</h1>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+#include &lt;string.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Once upon a time... The number %d was printed!</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h1 id="on-the-run-menu-select-start-debugging">On the RUN menu select “Start Debugging”</h1>
+<p>The first time you may see</p>
+
+<p><img src="/fragments/assets/20230323/image005.png" alt="launch.json error" /></p>
+
+<h1 id="go-to-terminal-menu-and-select-configure-default-build-task">Go to “Terminal” menu and select “Configure default build task”.</h1>
+
+<p><img src="/fragments/assets/20230323/image006.png" alt="task configuration" /></p>
+
+<h1 id="search-and-select-ccgcc-build-active-file">Search and select <strong>C/C++:gcc build active file</strong></h1>
+
+<p><img src="/fragments/assets/20230323/image007.png" alt="C/C++:gcc build active file" /></p>
+
+<h1 id="change-the-editor-to-the-c-program-file">Change the editor to the c program file</h1>
+<p>Try again Menu RUN -&gt; Start Debugging</p>
+
+<p><img src="/fragments/assets/20230323/image008.png" alt="launch.json error" /></p>
+
+<p>Click the button “Open launch.json”</p>
+
+<p><img src="/fragments/assets/20230323/image009.png" alt="add configuration" /></p>
+
+<p>After clicking “Add Configuration” Choose the option <strong>C/C++: (gdb) Launch</strong></p>
+
+<p>Change the line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"program": "enter program name, for example ${workspaceFolder}/a.out",
+</code></pre></div></div>
+<h1 id="to">To</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"program": "${workspaceFolder}/${fileBasenameNoExtension}",
+</code></pre></div></div>
+
+<p>If you look at the file tasks.json you will see that this program name is defined on the “-o” argument of the task, under “args” passed to gcc</p>
+
+<h1 id="change-the-editor-to-the-c-program-file-1">Change the editor to the c program file</h1>
+
+<p>Menu RUN -&gt; Start Debugging</p>
+
+<p><img src="/fragments/assets/20230323/image010.png" alt="missing debugger" /></p>
+
+<p>On the command line execute <code class="language-plaintext highlighter-rouge">whereis gdb</code>; in my setup it returns <code class="language-plaintext highlighter-rouge">gdb: /usr/share/gdb</code></p>
+
+<p>On the <strong>launch.json</strong> file add under “configurations” the parameter:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"miDebuggerPath": "/usr/bin/gdb",
+</code></pre></div></div>
+
+<h1 id="change-again-the-editor-to-the-c-program-file-and">Change again the editor to the c program file and:</h1>
+
+<p>Menu RUN -&gt; Start Debugging</p>
+
+<p>This time on the terminal (Menu View-&gt;Terminal or Ctrl+ç on windows/wsl) we should see:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Once upon a time... The number 3 was printed
+[1] + Done		"/usr/bin/gdb" …
+</code></pre></div></div>
+
+<h1 id="lets-try-to-set-a-breakpoint">Lets try to set a breakpoint.</h1>
+
+<p>Go to the line with the printf statement and click on the empty space  on the left of the line number of the printf. A red dot should appear.</p>
+
+<p><img src="/fragments/assets/20230323/image011.png" alt="set breakpoint" /></p>
+
+<h1 id="once-again-menu-run---start-debugging">Once again: Menu RUN -&gt; Start Debugging</h1>
+
+<p>The code execution stops at the breakpoint. Here we can inspect variables and other information. On the top right corner we have the buttons to continue execution.</p>
+
+<p><img src="/fragments/assets/20230323/image012.png" alt="breakpoint hit" /></p>
+
+<h1 id="optional">OPTIONAL</h1>
+<p><strong>Install man pages</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install manpages-dev man-db manpages-posix-dev
+# check
+man 3 scanf
+man 2 execve
+man 2 fork
+</code></pre></div></div>
+
+<h1 id="files">FILES</h1>
+<p>demo.c</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+#include &lt;string.h&gt;
+
+int main(void)
+{
+    int a = 3;
+    printf("\nOnce upon a time... The number %d was printed!\n", a);
+    return 0;
+}
+</code></pre></div></div>
+
+<p><strong>Inside the folder .vscode</strong></p>
+
+<p>tasks.json</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc build active file",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "compiler: /usr/bin/gcc"
+        }
+    ]
+}
+</code></pre></div></div>
+
+<p>launch.json</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C/C++: gcc build active file",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+
+    ]
+}
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/fragments/configuration/2023/03/23/wsl-c-dev.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fragments/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Resources</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Resources</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/fragments/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/fragments/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+---
+layout: post
+title:  "C development using vscode and wsl"
+date:   2023-03-23 14:45:02 +0000
+categories: configuration
+---
+
+# First Install Visual Studio Code
+Download and install a x64 version from <a href="https://code.visualstudio.com/download" target="_blank">https://code.visualstudio.com/download</a>
+
+
+# Install Windows Terminal Preview
+Windows Terminal Preview can be installed from the <a href="https://apps.microsoft.com/store/detail/windows-terminal-preview/9N8G5RFZ9XK3" target="_blank">Windows Store</a>. Windows sometimes already has "Windows Terminal" installed. If that is the case remove it.
+
+
+# Install wsl (windows subsystem for linux)
+Open a command line **as administrator**, execute ``wsl --install`` and then reboot.
+
+After rebooting launch the app “Ubuntu” and follow the instructions to get your Ubuntu ready. Then, you can use “Windows Terminal Preview” and there should be an option to launch aUbuntu prompt. You can always use the Ubuntu App.
+
+# Configure Ubuntu Linux
+On the Ubuntu prompt execute:
+```
+sudo apt update && sudo apt -y upgrade
+sudo apt install git
+sudo apt install build-essential
+sudo apt install gdb
+```
+
+# Check the installed tools:
+```
+whereis gcc make
+gcc --version
+make -v
+gdb --version
+git --version
+```
+
+# On the Linux console:
+```
+mkdir codigo
+cd codigo
+code .
+```
+If the following warning shows you must trust the authors (you) to proceed.
+![Trust the folder!]({{site.baseurl}}/assets/20230323/image001.png)
+
+# Install the extension "C/C++ Extension Pack"
+On the Visual Studio code, click the shortcut for extensions on the left,
+![Extensions]({{site.baseurl}}/assets/20230323/image002.png) and search for **C/C++ Extension Pack**
+
+![C/C++ Extension Pack]({{site.baseurl}}/assets/20230323/image003.png)
+
+# Create a C source code file
+Change to the file view and create a new file called demo.c
+
+![new file]({{site.baseurl}}/assets/20230323/image004.png)
+
+# Type the following code
+{% highlight c %}
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main(void)
+{
+    int a = 3;
+    printf("\nOnce upon a time... The number %d was printed!\n", a);
+    return 0;
+}
+{% endhighlight %}
+
+# On the RUN menu select “Start Debugging”
+The first time you may see
+
+![launch.json error]({{site.baseurl}}/assets/20230323/image005.png)
+
+# Go to “Terminal” menu and select “Configure default build task”.
+
+![task configuration]({{site.baseurl}}/assets/20230323/image006.png)
+
+# Search and select **C/C++:gcc build active file**
+
+![C/C++:gcc build active file]({{site.baseurl}}/assets/20230323/image007.png)
+
+# Change the editor to the c program file
+Try again Menu RUN -> Start Debugging
+
+![launch.json error]({{site.baseurl}}/assets/20230323/image008.png)
+
+Click the button “Open launch.json”
+
+![add configuration]({{site.baseurl}}/assets/20230323/image009.png)
+
+After clicking “Add Configuration” Choose the option **C/C++: (gdb) Launch**
+
+Change the line (see listings at the end):
+```
+"program": "enter program name, for example ${workspaceFolder}/a.out",
+```
+# To
+```
+"program": "${workspaceFolder}/${fileBasenameNoExtension}",
+```
+
+If you look at the file tasks.json you will see that this program name is defined on the “-o” argument of the task, under “args” passed to gcc
+
+# Change the editor to the c program file
+
+Menu RUN -> Start Debugging
+
+![missing debugger]({{site.baseurl}}/assets/20230323/image010.png)
+
+On the command line execute ``whereis gdb``; in my setup it returns ``gdb: /usr/share/gdb``
+
+On the **launch.json** file add under “configurations” the parameter:
+```
+"miDebuggerPath": "/usr/bin/gdb",
+```
+
+# Change again the editor to the c program file and:
+
+Menu RUN -> Start Debugging
+
+This time on the terminal (Menu View->Terminal or Ctrl+ç on windows/wsl) we should see:
+```
+Once upon a time... The number 3 was printed
+[1] + Done		"/usr/bin/gdb" …
+```
+
+# Lets try to set a breakpoint.
+
+Go to the line with the printf statement and click on the empty space  on the left of the line number of the printf. A red dot should appear.
+
+![set breakpoint]({{site.baseurl}}/assets/20230323/image011.png)
+
+# Once again: Menu RUN -> Start Debugging
+
+The code execution stops at the breakpoint. Here we can inspect variables and other information. On the top right corner we have the buttons to continue execution.
+
+![breakpoint hit]({{site.baseurl}}/assets/20230323/image012.png)
+
+
+
+# OPTIONAL
+**Install man pages**
+```
+sudo apt-get install manpages-dev man-db manpages-posix-dev
+# check
+man 3 scanf
+man 2 execve
+man 2 fork
+```
+
+ 
+# FILES
+demo.c
+ ```
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main(void)
+{
+    int a = 3;
+    printf("\nOnce upon a time... The number %d was printed!\n", a);
+    return 0;
+}
+ ```
+
+**Inside the folder .vscode**
+
+tasks.json
+```
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc build active file",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "compiler: /usr/bin/gcc"
+        }
+    ]
+}
+```
+
+launch.json
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C/C++: gcc build active file",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+
+    ]
+}
+```

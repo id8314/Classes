@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/fragments/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/fragments/" rel="alternate" type="text/html" /><updated>2023-03-23T15:53:14+00:00</updated><id>http://localhost:4000/fragments/feed.xml</id><title type="html">Resources</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">C development using vscode and wsl</title><link href="http://localhost:4000/fragments/configuration/2023/03/23/wsl-c-dev.html" rel="alternate" type="text/html" title="C development using vscode and wsl" /><published>2023-03-23T14:45:02+00:00</published><updated>2023-03-23T14:45:02+00:00</updated><id>http://localhost:4000/fragments/configuration/2023/03/23/wsl-c-dev</id><content type="html" xml:base="http://localhost:4000/fragments/configuration/2023/03/23/wsl-c-dev.html">&lt;h1 id=&quot;first-install-visual-studio-code&quot;&gt;First Install Visual Studio Code&lt;/h1&gt;
+&lt;p&gt;Download and install a x64 version from &lt;a href=&quot;https://code.visualstudio.com/download&quot; target=&quot;_blank&quot;&gt;https://code.visualstudio.com/download&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;install-windows-terminal-preview&quot;&gt;Install Windows Terminal Preview&lt;/h1&gt;
+&lt;p&gt;Windows Terminal Preview can be installed from the &lt;a href=&quot;https://apps.microsoft.com/store/detail/windows-terminal-preview/9N8G5RFZ9XK3&quot; target=&quot;_blank&quot;&gt;Windows Store&lt;/a&gt;. Windows sometimes already has “Windows Terminal” installed. If that is the case remove it.&lt;/p&gt;
+
+&lt;h1 id=&quot;install-wsl-windows-subsystem-for-linux&quot;&gt;Install wsl (windows subsystem for linux)&lt;/h1&gt;
+&lt;p&gt;Open a command line &lt;strong&gt;as administrator&lt;/strong&gt;, execute &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wsl --install&lt;/code&gt; and then reboot.&lt;/p&gt;
+
+&lt;p&gt;After rebooting launch the app “Ubuntu” and follow the instructions to get your Ubuntu ready. Then, you can use “Windows Terminal Preview” and there should be an option to launch aUbuntu prompt. You can always use the Ubuntu App.&lt;/p&gt;
+
+&lt;h1 id=&quot;configure-ubuntu-linux&quot;&gt;Configure Ubuntu Linux&lt;/h1&gt;
+&lt;p&gt;On the Ubuntu prompt execute:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt -y upgrade
+sudo apt install git
+sudo apt install build-essential
+sudo apt install gdb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;check-the-installed-tools&quot;&gt;Check the installed tools:&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whereis gcc make
+gcc --version
+make -v
+gdb --version
+git --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;on-the-linux-console&quot;&gt;On the Linux console:&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir codigo
+cd codigo
+code .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;If the following warning shows you must trust the authors (you) to proceed.
+&lt;img src=&quot;/fragments/assets/20230323/image001.png&quot; alt=&quot;Trust the folder!&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;install-the-extension-cc-extension-pack&quot;&gt;Install the extension “C/C++ Extension Pack”&lt;/h1&gt;
+&lt;p&gt;On the Visual Studio code, click the shortcut for extensions on the left,
+&lt;img src=&quot;/fragments/assets/20230323/image002.png&quot; alt=&quot;Extensions&quot; /&gt; and search for &lt;strong&gt;C/C++ Extension Pack&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image003.png&quot; alt=&quot;C/C++ Extension Pack&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;create-a-c-source-code-file&quot;&gt;Create a C source code file&lt;/h1&gt;
+&lt;p&gt;Change to the file view and create a new file called demo.c&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image004.png&quot; alt=&quot;new file&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;type-the-following-code&quot;&gt;Type the following code&lt;/h1&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdlib.h&amp;gt;
+#include &amp;lt;math.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Once upon a time... The number %d was printed!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;on-the-run-menu-select-start-debugging&quot;&gt;On the RUN menu select “Start Debugging”&lt;/h1&gt;
+&lt;p&gt;The first time you may see&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image005.png&quot; alt=&quot;launch.json error&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;go-to-terminal-menu-and-select-configure-default-build-task&quot;&gt;Go to “Terminal” menu and select “Configure default build task”.&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image006.png&quot; alt=&quot;task configuration&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;search-and-select-ccgcc-build-active-file&quot;&gt;Search and select &lt;strong&gt;C/C++:gcc build active file&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image007.png&quot; alt=&quot;C/C++:gcc build active file&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;change-the-editor-to-the-c-program-file&quot;&gt;Change the editor to the c program file&lt;/h1&gt;
+&lt;p&gt;Try again Menu RUN -&amp;gt; Start Debugging&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image008.png&quot; alt=&quot;launch.json error&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click the button “Open launch.json”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image009.png&quot; alt=&quot;add configuration&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After clicking “Add Configuration” Choose the option &lt;strong&gt;C/C++: (gdb) Launch&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Change the line:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;program&quot;: &quot;enter program name, for example ${workspaceFolder}/a.out&quot;,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h1 id=&quot;to&quot;&gt;To&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}&quot;,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you look at the file tasks.json you will see that this program name is defined on the “-o” argument of the task, under “args” passed to gcc&lt;/p&gt;
+
+&lt;h1 id=&quot;change-the-editor-to-the-c-program-file-1&quot;&gt;Change the editor to the c program file&lt;/h1&gt;
+
+&lt;p&gt;Menu RUN -&amp;gt; Start Debugging&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image010.png&quot; alt=&quot;missing debugger&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On the command line execute &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;whereis gdb&lt;/code&gt;; in my setup it returns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gdb: /usr/share/gdb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;On the &lt;strong&gt;launch.json&lt;/strong&gt; file add under “configurations” the parameter:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;change-again-the-editor-to-the-c-program-file-and&quot;&gt;Change again the editor to the c program file and:&lt;/h1&gt;
+
+&lt;p&gt;Menu RUN -&amp;gt; Start Debugging&lt;/p&gt;
+
+&lt;p&gt;This time on the terminal (Menu View-&amp;gt;Terminal or Ctrl+ç on windows/wsl) we should see:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Once upon a time... The number 3 was printed
+[1] + Done		&quot;/usr/bin/gdb&quot; …
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;lets-try-to-set-a-breakpoint&quot;&gt;Lets try to set a breakpoint.&lt;/h1&gt;
+
+&lt;p&gt;Go to the line with the printf statement and click on the empty space  on the left of the line number of the printf. A red dot should appear.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image011.png&quot; alt=&quot;set breakpoint&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;once-again-menu-run---start-debugging&quot;&gt;Once again: Menu RUN -&amp;gt; Start Debugging&lt;/h1&gt;
+
+&lt;p&gt;The code execution stops at the breakpoint. Here we can inspect variables and other information. On the top right corner we have the buttons to continue execution.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/fragments/assets/20230323/image012.png&quot; alt=&quot;breakpoint hit&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;optional&quot;&gt;OPTIONAL&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Install man pages&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install manpages-dev man-db manpages-posix-dev
+# check
+man 3 scanf
+man 2 execve
+man 2 fork
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;files&quot;&gt;FILES&lt;/h1&gt;
+&lt;p&gt;demo.c&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdint.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+#include &amp;lt;math.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+
+int main(void)
+{
+    int a = 3;
+    printf(&quot;\nOnce upon a time... The number %d was printed!\n&quot;, a);
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Inside the folder .vscode&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;tasks.json&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;version&quot;: &quot;2.0.0&quot;,
+    &quot;tasks&quot;: [
+        {
+            &quot;type&quot;: &quot;cppbuild&quot;,
+            &quot;label&quot;: &quot;C/C++: gcc build active file&quot;,
+            &quot;command&quot;: &quot;/usr/bin/gcc&quot;,
+            &quot;args&quot;: [
+                &quot;-fdiagnostics-color=always&quot;,
+                &quot;-g&quot;,
+                &quot;${file}&quot;,
+                &quot;-o&quot;,
+                &quot;${fileDirname}/${fileBasenameNoExtension}&quot;
+            ],
+            &quot;options&quot;: {
+                &quot;cwd&quot;: &quot;${fileDirname}&quot;
+            },
+            &quot;problemMatcher&quot;: [
+                &quot;$gcc&quot;
+            ],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            },
+            &quot;detail&quot;: &quot;compiler: /usr/bin/gcc&quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;launch.json&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        
+
+        {
+            &quot;name&quot;: &quot;(gdb) Launch&quot;,
+            &quot;type&quot;: &quot;cppdbg&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}&quot;,
+            &quot;args&quot;: [],
+            &quot;stopAtEntry&quot;: false,
+            &quot;cwd&quot;: &quot;${fileDirname}&quot;,
+            &quot;environment&quot;: [],
+            &quot;externalConsole&quot;: false,
+            &quot;MIMode&quot;: &quot;gdb&quot;,
+            &quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,
+            &quot;preLaunchTask&quot;: &quot;C/C++: gcc build active file&quot;,
+            &quot;setupCommands&quot;: [
+                {
+                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
+                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
+                    &quot;ignoreFailures&quot;: true
+                },
+                {
+                    &quot;description&quot;: &quot;Set Disassembly Flavor to Intel&quot;,
+                    &quot;text&quot;: &quot;-gdb-set disassembly-flavor intel&quot;,
+                    &quot;ignoreFailures&quot;: true
+                }
+            ]
+        }
+
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="configuration" /><summary type="html">First Install Visual Studio Code Download and install a x64 version from https://code.visualstudio.com/download</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/fragments/jekyll/update/2023/03/23/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-03-23T13:53:02+00:00</published><updated>2023-03-23T13:53:02+00:00</updated><id>http://localhost:4000/fragments/jekyll/update/2023/03/23/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/fragments/jekyll/update/2023/03/23/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
