@@ -16,7 +16,7 @@ Windows Terminal Preview can be installed from the <a href="https://apps.microso
 # Install wsl (windows subsystem for linux)
 Open a command line **as administrator**, execute ``wsl --install`` and then reboot.
 
-After rebooting launch the app “Ubuntu” and follow the instructions to get your Ubuntu ready. Then, you can use “Windows Terminal Preview” and there should be an option to launch aUbuntu prompt. You can always use the Ubuntu App.
+After rebooting launch the app “Ubuntu” and follow the instructions to get your Ubuntu ready. Then, you can use “Windows Terminal Preview” and there should be an option to launch a Ubuntu prompt. You can always use the Ubuntu App.
 
 # Configure Ubuntu Linux
 On the Ubuntu prompt execute:
