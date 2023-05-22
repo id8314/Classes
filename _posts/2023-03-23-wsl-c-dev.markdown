@@ -24,6 +24,7 @@ On the Ubuntu prompt execute:
 sudo apt update && sudo apt -y upgrade
 sudo apt install git
 sudo apt install build-essential
+sudo apt install libcurl4-openssl-dev libssl-dev
 sudo apt install gdb
 ```
 
